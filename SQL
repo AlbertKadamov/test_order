@@ -1,12 +1,11 @@
 #Представь: тебе нужно проверить, отображается ли созданный заказ в базе данных.
 #Для этого: выведи список логинов курьеров с количеством их заказов в статусе «В доставке» (поле inDelivery = true). 
 
-SELECT "Couriers".login, COUNT("Orders"."inDelivery")
+SELECT "Couriers".login, COUNT("Orders".track)
 FROM "Couriers"
 JOIN "Orders" ON "Couriers".id = "Orders"."courierId"
 WHERE "Orders"."inDelivery" = true
-GROUP BY "Couriers".login
-ORDER BY COUNT("Orders"."inDelivery") ASC;
+GROUP BY "Couriers".login;
 
 #Ты тестируешь статусы заказов. Нужно убедиться, что в базе данных они записываются корректно.
 #Для этого: выведи все трекеры заказов и их статусы. 
